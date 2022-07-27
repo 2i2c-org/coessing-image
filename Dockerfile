@@ -32,6 +32,7 @@ RUN /tmp/install-jupyter-extensions.bash
 
 RUN export JUPYTER_DATA_DIR="$NB_PYTHON_PREFIX/share/jupyter" \
  && julia --eval 'using Pkg; Pkg.add("IJulia"); using IJulia; installkernel("Julia");' \
+ && julia --eval 'using Pkg; pkg"add CairoMakie DataDeps JLD2 Oceananigans";' \
  && julia --eval 'using Pkg; Pkg.instantiate(); Pkg.resolve(); pkg"precompile"'
 
 
