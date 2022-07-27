@@ -32,7 +32,7 @@ RUN /tmp/install-jupyter-extensions.bash
 
 RUN export JUPYTER_DATA_DIR="$NB_PYTHON_PREFIX/share/jupyter" \
  && julia --eval 'using Pkg; Pkg.add("IJulia"); using IJulia; installkernel("Julia");' \
- && julia --eval 'using Pkg; pkg"add Oceananigans CairoMakie DataDeps JLD2 KernelAbstractions";' \
+ && julia --eval 'using Pkg; pkg"add Oceananigans@0.77.0 CairoMakie DataDeps JLD2 KernelAbstractions";' \
  && julia --eval 'using Pkg; Pkg.instantiate(); Pkg.resolve(); pkg"precompile"'
 
 # Set bash as shell in terminado.
