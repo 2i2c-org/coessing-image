@@ -13,3 +13,6 @@ dependencies:
   - mapclassify
   - libpysal
   - flask
+  - glob
+  - os
+  - path
